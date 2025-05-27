@@ -9,6 +9,7 @@
     />
     <CityList :cities="currentItems" :onCityClick="openForecastModal" />
     <Pagination :currentPage="currentPage" :totalPages="totalPages" :onPageChange="changePage" />
+    <ModalForecast :isOpen="isOpen" :onClose="closeModal" :selectedCodeInsee="selectedCodeInsee" />
   </div>
 </template>
 
@@ -16,13 +17,13 @@
 import { ref, computed } from 'vue'
 import CityList from '../components/CityList.vue'
 import Pagination from '../components/Pagination.vue'
-
+import ModalForecast from '../components/Forecast/ModalForecast.vue'
 import { CityService } from '../services/CityService'
 import type { City } from '../interfaces/City'
 
 const weatherData = ref<City[]>([])
 const searchTerm = ref('')
-
+const selectedCodeInsee = ref<string | null>(null)
 const isOpen = ref(false)
 
 const currentPage = ref(1)
@@ -50,9 +51,10 @@ const totalPages = computed(() => Math.ceil(filteredData.value.length / itemsPer
 
 // Handlers
 const openForecastModal = (codeInsee: string) => {
+  selectedCodeInsee.value = codeInsee
   isOpen.value = true
 }
-
+const closeModal = () => (isOpen.value = false)
 const changePage = (page: number) => (currentPage.value = page)
 </script>
 

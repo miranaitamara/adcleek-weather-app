@@ -9,7 +9,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(city, i) in cities" :key="i"">
+        <tr v-for="(city, i) in cities" :key="i" @click="() => onCityClick(city.insee)">
           <td>{{ city.insee }}</td>
           <td>{{ city.name }}</td>
           <td>{{ city.population }}</td>

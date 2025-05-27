@@ -10,7 +10,7 @@ const app = express();
 app.use(cors({ credentials: true }));
 app.use(express.json());
 
-// Initialisation de la base avec les deux tables nécessaires (à garder)
+// init DB
 db.init();
 
 app.use('/', cityRoutes);
