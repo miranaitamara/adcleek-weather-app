@@ -66,20 +66,5 @@ package-lock.json
 #intellij idea
 .idea
 .vscode/settings.json
-.DS_Store
+
 tmp
-
-/cypress/videos/
-/cypress/screenshots/
-
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-
-*.tsbuildinfo
