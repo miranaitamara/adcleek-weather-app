@@ -1,8 +1,9 @@
-const express = require("express");
-const cors = require("cors");
-const db = require("./config/database");
-const { errorHandler } = require("./middlewares/errorHandler");
-require("dotenv").config();
+const express = require('express');
+const cors = require('cors');
+const cityRoutes = require('./routes/cityRoutes');
+const db = require('./config/database');
+const { errorHandler } = require('./middlewares/errorHandler');
+require('dotenv').config();
 
 const app = express();
 
@@ -12,7 +13,7 @@ app.use(express.json());
 // Initialisation de la base avec les deux tables nécessaires (à garder)
 db.init();
 
-app.use("/", cityRoutes);
+app.use('/', cityRoutes);
 
 app.use(errorHandler);
 module.exports = app;

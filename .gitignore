@@ -66,5 +66,5 @@ package-lock.json
 #intellij idea
 .idea
 .vscode/settings.json
-
+.DS_Store
 tmp
